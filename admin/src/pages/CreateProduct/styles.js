@@ -1,37 +1,37 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
   padding-top: 20px;
   display: flex;
   justify-content: center;
-`
+`;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 320px;
-`
+`;
 
 export const Label = styled.label`
   margin-bottom: 5px;
   font-size: 18px;
-`
+`;
 
 export const InputName = styled.input`
   font-size: 18px;
   padding: 4px 10px;
   width: 100%;
   margin-bottom: 15px;
-`
+`;
 
 export const InputPrice = styled.input`
   font-size: 18px;
   padding: 4px 10px;
   width: 100%;
   margin-bottom: 15px;
-`
+`;
 
 export const InputImageContainer = styled.div`
   margin: 5px 0 10px;
@@ -42,11 +42,11 @@ export const InputImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 export const InputImage = styled.input`
   margin-bottom: 15px;
-`
+`;
 
 export const MoreImagesButton = styled.div`
   border: none;
@@ -56,7 +56,7 @@ export const MoreImagesButton = styled.div`
   color: white;
 
   cursor: pointer;
-`
+`;
 
 export const SubmitButton = styled.button`
   padding: 10px 20px;
@@ -67,4 +67,4 @@ export const SubmitButton = styled.button`
   margin: 20px 0 10px;
   background-color: #0366fc;
   color: white;
-`
+`;

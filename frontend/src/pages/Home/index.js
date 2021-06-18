@@ -1,33 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import {
-  Container
-} from "./styles";
+import { Container } from './styles';
 
-import api from '../../services/api'
-import "../../main.css";
+import api from '../../services/api';
+import '../../main.css';
 
-import ItemBox from "../../components/ItemBox";
+import ItemBox from '../../components/ItemBox';
 
 function Home() {
-
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetchApi() {
-      const response = await api.get('api/products')
-      setData(response.data)
+      const response = await api.get('api/products');
+      setData(response.data);
     }
-    fetchApi()
-  }, [])
+    fetchApi();
+  }, []);
 
   return (
     <Container>
-      {
-        data.length === 0 && <h1>Nenhum produto disponível no momento</h1>
-      }
+      {data.length === 0 && <h1>Nenhum produto disponível no momento</h1>}
 
-      {data.map((item) => (
+      {data.map(item => (
         <ItemBox
           key={item.product}
           title={item.product}

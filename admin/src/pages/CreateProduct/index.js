@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Redirect } from "react-router";
+import { useState } from 'react';
+import { Redirect } from 'react-router';
 import {
   Container,
   Form,
@@ -9,48 +9,41 @@ import {
   SubmitButton,
   InputImage,
   InputImageContainer,
-  MoreImagesButton
-} from "./styles";
+  MoreImagesButton,
+} from './styles';
 
-import api from '../../services/api'
+import api from '../../services/api';
 
-function CreateProduct(){
+function CreateProduct() {
+  const [product, setProduct] = useState('');
+  const [price, setPrice] = useState('');
+  const [images, setImages] = useState([]);
 
-  const [product, setProduct] = useState('')
-  const [price, setPrice] = useState('')
-  const [images, setImages] = useState([])
-
-  const [countField, setContField] = useState([Math.random()])
-  const [isRedirect, setIsRedirect] = useState(false)
+  const [countField, setContField] = useState([Math.random()]);
+  const [isRedirect, setIsRedirect] = useState(false);
 
   function addImageField() {
-    setContField([
-      ...countField,
-      Math.random()
-    ])
+    setContField([...countField, Math.random()]);
   }
 
   async function handleSubmit(e) {
-
-    e.preventDefault()
+    e.preventDefault();
 
     let formData = new FormData();
-    formData.append("product", product);
-    formData.append("price", price);
+    formData.append('product', product);
+    formData.append('price', price);
 
-    images.map((image) => {
-      formData.append("file", image[0]);
-    })
+    images.map(image => {
+      formData.append('file', image[0]);
+    });
 
-    await api.post('/products', formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }
-    )
+    await api.post('/products', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
 
-    setIsRedirect(true)
+    setIsRedirect(true);
   }
 
   return (
@@ -73,36 +66,24 @@ function CreateProduct(){
         <Label>Imagens do produto:</Label>
 
         <InputImageContainer>
-
           {countField.map(item => (
             <InputImage
               key={item}
               type="file"
               required
-              onChange={e => setImages([
-                ...images,
-                e.target.files
-              ])}
+              onChange={e => setImages([...images, e.target.files])}
             />
           ))}
 
-          <MoreImagesButton
-            onClick={addImageField}
-          >
+          <MoreImagesButton onClick={addImageField}>
             + Adicionar outra imagem
           </MoreImagesButton>
-
         </InputImageContainer>
 
-        <SubmitButton
-          type="submit"
-        >
-          Cadastrar
-        </SubmitButton>
+        <SubmitButton type="submit">Cadastrar</SubmitButton>
       </Form>
 
       {isRedirect && <Redirect to="/home" />}
-
     </Container>
   );
 }

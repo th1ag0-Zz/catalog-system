@@ -1,13 +1,9 @@
-import {
-  BrowserRouter,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Login from '../pages/Login'
-import Home from '../pages/Home'
-import CreateProduct from "../pages/CreateProduct";
-import MyProducts from "../pages/MyProducts";
+// import Login from '../pages/Login';
+import Home from '../pages/Home';
+import CreateProduct from '../pages/CreateProduct';
+import MyProducts from '../pages/MyProducts';
 
 function Routes() {
   return (
@@ -26,7 +22,7 @@ function Routes() {
         </Route>
       </Switch>
     </BrowserRouter>
-  )
+  );
 }
 
 export default Routes;

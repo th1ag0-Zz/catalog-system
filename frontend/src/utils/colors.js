@@ -3,6 +3,6 @@ const colors = {
   text: '#333336',
   blue: '#2a2a73',
   purple: '#750b52',
-}
+};
 
 export default colors;
